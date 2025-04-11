@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gate or Door?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: #8b98d1;">
+    <div class="container">
+        <h1>Is this a Gate or a Door?</h1>
+
+        <div class="image-wrapper">
+            <img id="gameImage" src="" alt="Guess this!" />
+            <canvas id="pixelCanvas" class="hidden"></canvas>
+            <div id="containerOverlay" class="hidden"></div>
+
+            <!-- SINGLE popup block -->
+            <div id="popup" class="popup hidden">
+                <div class="popup-content">
+                    <p id="popupMessage">
+                        <span class="game-over-title">Game Over</span><br>
+                        Your final score: <span id="finalScoreText">0/5</span>
+                    </p>
+                    <button id="playAgainBtn" class="pixel-button" onclick="closePopup()">Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="pixel-button pixel-inset-2 answer" onclick="checkAnswer('gate')">Gate</button>
+            <button class="pixel-button pixel-inset-2 answer" onclick="checkAnswer('door')">Door</button>
+        </div>
+
+        <p id="scoreDisplay"></p>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

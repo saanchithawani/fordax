@@ -1,0 +1,271 @@
+@font-face {
+    font-family: 'Pixellari';
+    src: url('fonts/pixellari.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KA1';
+    src: url('fonts/ka1.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/Users/saanchi/Desktop/Untitled-1.png');
+    /* Replace with actual filename */
+    background-size: cover;
+    /* or contain, depending on fit */
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    /* Adjust as needed */
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+body {
+    font-family: 'Pixellari', sans-serif;
+    text-align: center;
+
+}
+
+
+.container {
+    position: relative;
+    z-index: 1;
+    border: 4px solid black;
+    width: fit-content;
+    height: 650px;
+    padding: 18px;
+    margin: 40px auto;
+    background-color: #ccd2fd;
+
+    box-shadow:
+        6px 6px 0 black,
+        6px 6px 0 #999;
+    overflow: hidden;
+
+}
+
+
+#containerOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    /* translucent white */
+    z-index: 9;
+    /* lower than popup (which is 10) */
+    display: none;
+    pointer-events: none;
+    backdrop-filter: blur(1px);
+    /* Optional: slight blur effect */
+}
+
+#containerOverlay.visible {
+    display: block;
+}
+
+.pixel-button {
+    font-family: 'Pixellari', sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid black;
+    position: relative;
+    box-shadow:
+        2px 2px 0 black,
+        4px 4px 0 #888;
+    transition: all 0.1s ease-in-out;
+}
+
+.pixel-button:hover {
+    background-color: #fef2af;
+    box-shadow:
+        1px 1px 0 black,
+        2px 2px 0 #888;
+}
+
+.pixel-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#gameImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+    position: relative;
+}
+
+#gameImage.visible {
+    opacity: 1;
+}
+
+#pixelCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+
+#imageOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+#imageOverlay.visible {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-over-title {
+    font-family: 'KA1', sans-serif;
+    font-size: 28px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff5bd;
+    border: 3px solid black;
+    padding: 20px;
+    z-index: 10;
+    min-width: 260px;
+    text-align: center;
+    box-shadow:
+        4px 4px 0 black,
+        2px 2px 0 #888;
+    font-family: 'Pixellari', sans-serif;
+
+
+}
+
+#popup::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/Users/saanchi/Desktop/Untitled-1.png');
+    /* update path if needed */
+    background-repeat: no-repeat;
+    background-size: auto 140%;
+    /* fit height, crop width */
+    background-position: center;
+    opacity: 0.2;
+    /* reduce visibility */
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Make sure content stays above the image */
+#popup>* {
+    position: relative;
+    z-index: 1;
+}
+
+
+.popup-content {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    padding-top: 20px;
+}
+
+
+
+#playAgainBtn {
+    margin-top: 10px;
+    font-family: 'Pixellari', sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    box-shadow:
+        2px 2px 0 black,
+        0px 0px 0 #888;
+    transition: all 0.1s ease-in-out;
+}
+
+#playAgainBtn:hover {
+    background-color: black;
+    color: #FFFFC5;
+    box-shadow:
+        2px 2px 0 #FFFFC5,
+        0px 0px 0 #555;
+}
+
+#feedback {
+    font-family: 'KA1', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.dimmed-text {
+    opacity: 0.4;
+    pointer-events: none;
+    user-select: none;
+}
+
+.container h1 {
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
+#popupMessage {
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: 0;
+}
