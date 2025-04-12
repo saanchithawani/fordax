@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'Pixellari';
-    src: url('fonts/pixellari.ttf') format('woff2');
+    src: url('fonts/pixellari.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'KA1';
-    src: url('fonts/ka1.ttf') format('woff2');
+    src: url('fonts/ka1.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -21,7 +21,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/Users/saanchi/Desktop/Untitled-1.png');
+    background-image: url('Untitled-1.png');
     /* Replace with actual filename */
     background-size: cover;
     /* or contain, depending on fit */
@@ -194,7 +194,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/Users/saanchi/Desktop/Untitled-1.png');
+    background-image: url('Untitled-1.png');
     /* update path if needed */
     background-repeat: no-repeat;
     background-size: auto 140%;
