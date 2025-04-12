@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'Pixellari';
-    src: url('fonts/pixellari.ttf') format('woff2');
+    src: url('/fonts/pixellari.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'KA1';
-    src: url('fonts/ka1.ttf') format('woff2');
+    src: url('/fonts/ka1.ttf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
